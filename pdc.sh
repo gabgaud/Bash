@@ -70,7 +70,8 @@ if [[ "$STEP" -lt 2 ]]; then
         unlink /etc/resolv.conf
 
         #Création d'un nouveau fichier /etc/resolv.conf qui sera utilisé pour le résolveur de Samba
-        DomainName=$(grep -Po 'dc1\.\K\S+' /etc/hosts)
+	IPAddr=$(hostname -I)
+	DomainName=$(grep -Po 'dc1\.\K\S+' /etc/hosts)
 	KerberosRealm="${DomainName^^}"
         echo "nameserver $IPAddr" > /etc/resolv.conf
         echo "nameserver 8.8.8.8" >> /etc/resolv.conf
