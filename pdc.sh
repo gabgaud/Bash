@@ -118,7 +118,7 @@ if [[ "$STEP" -lt 2 ]]; then
         samba-tool user setpassword administrator --newpassword=Passw0rd
 
 	#Définition du redirecteur dans smb.conf
-	awk -v ip="$IPAddr" '{if ($0 ~ /^[[:space:]]*dns forwarder = "ip"/) sub(ip, "8.8.8.8"); print}' /etc/samba/smb.conf > /tmp/temp_smb.conf
+	awk -v ip="$IPAddr" '{if ($0 ~ /^[[:space:]]*dns forwarder = /) {gsub(ip, "8.8.8.8");} print}' /etc/samba/smb.conf > /tmp/temp_smb.conf
 	mv /tmp/temp_smb.conf /etc/samba/smb.conf
 
 fi
