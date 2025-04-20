@@ -131,7 +131,6 @@ if [[ "$STEP" -lt 2 ]]; then
 	systemctl disable samba winbind nmbd smbd
 	systemctl mask samba winbind nmbd smbd
 	systemctl unmask samba-ad-dc
-	systemctl enable samba-ad-dc
 
 	#Fin du script
         echo -n "Le script est terminé. Le serveur doit maintenant redémarrer.Appuyez sur une touche..."
