@@ -118,5 +118,5 @@ if [[ "$STEP" -lt 2 ]]; then
         samba-tool user setpassword administrator --newpassword=Passw0rd
 
 	#Définition du redirecteur dans smb.conf
-	sed -i -e 's/nameserver/8.8.8.8/g' /etc/samba/smb.conf
+	sed -i -e "s/$IPAddr/8.8.8.8/g" /etc/samba/smb.conf
 fi
