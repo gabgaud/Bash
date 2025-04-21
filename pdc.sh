@@ -127,10 +127,10 @@ if [[ "$STEP" -lt 2 ]]; then
 	rm -f /var/lib/samba/private/krb5.conf
 	ln -s /etc/krb5.conf /var/lib/samba/private/krb5.conf
 
-	#Désactivation des services inutilisés
+	#Désactivation des services inutilisés	
+	systemctl disable samba winbind nmbd smbd
 	systemctl unmask samba-ad-dc
 	systemctl enable samba-ad-dc
-	systemctl disable samba winbind nmbd smbd
 	
 	#Fin du script
         echo -n "Le script est terminé. Le serveur doit maintenant redémarrer.Appuyez sur une touche..."
